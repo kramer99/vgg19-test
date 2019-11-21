@@ -4,7 +4,7 @@ import scipy.io
 import imageio
 import numpy as np
 import matplotlib.pyplot as plt
-from keras.layers.convolutional import Convolution2D, AveragePooling2D
+from keras.layers.convolutional import Convolution2D, MaxPooling2D
 from keras.models import Sequential
 from keras.layers import Dense, Flatten
 
@@ -44,25 +44,25 @@ model = Sequential([
     #Convolution2D(64, (3, 3), name='conv1_1', padding='same', activation='relu', input_shape=(300,400,3)),
     Convolution2D(64, (3, 3), name='conv1_1', padding='same', activation='relu', input_shape=(224,224,3)),
     Convolution2D(64, (3, 3), name='conv1_2', padding='same', activation='relu'),
-    AveragePooling2D(pool_size=(2, 2), strides=(2, 2), name='avgpool1', padding='same'),
+    MaxPooling2D(pool_size=(2, 2), strides=(2, 2), name='pool1', padding='same'),
     Convolution2D(128, (3, 3), name='conv2_1', padding='same', activation='relu'),
     Convolution2D(128, (3, 3), name='conv2_2', padding='same', activation='relu'),
-    AveragePooling2D(pool_size=(2, 2), strides=(2, 2), name='avgpool2', padding='same'),
+    MaxPooling2D(pool_size=(2, 2), strides=(2, 2), name='pool2', padding='same'),
     Convolution2D(256, (3, 3), name='conv3_1', padding='same', activation='relu'),
     Convolution2D(256, (3, 3), name='conv3_2', padding='same', activation='relu'),
     Convolution2D(256, (3, 3), name='conv3_3', padding='same', activation='relu'),
     Convolution2D(256, (3, 3), name='conv3_4', padding='same', activation='relu'),
-    AveragePooling2D(pool_size=(2, 2), strides=(2, 2), name='avgpool3', padding='same'),
+    MaxPooling2D(pool_size=(2, 2), strides=(2, 2), name='pool3', padding='same'),
     Convolution2D(512, (3, 3), name='conv4_1', padding='same', activation='relu'),
     Convolution2D(512, (3, 3), name='conv4_2', padding='same', activation='relu'),
     Convolution2D(512, (3, 3), name='conv4_3', padding='same', activation='relu'),
     Convolution2D(512, (3, 3), name='conv4_4', padding='same', activation='relu'),
-    AveragePooling2D(pool_size=(2, 2), strides=(2, 2), name='avgpool4', padding='same'),
+    MaxPooling2D(pool_size=(2, 2), strides=(2, 2), name='pool4', padding='same'),
     Convolution2D(512, (3, 3), name='conv5_1', padding='same', activation='relu'),
     Convolution2D(512, (3, 3), name='conv5_2', padding='same', activation='relu'),
     Convolution2D(512, (3, 3), name='conv5_3', padding='same', activation='relu'),
     Convolution2D(512, (3, 3), name='conv5_4', padding='same', activation='relu'),
-    AveragePooling2D(pool_size=(2, 2), strides=(2, 2), name='avgpool5', padding='same'),
+    MaxPooling2D(pool_size=(2, 2), strides=(2, 2), name='pool5', padding='same'),
     #GlobalAveragePooling2D(name='avgpool5'),
     Flatten(),
     Dense(4096, name='fc6', activation='relu'),
